@@ -1,6 +1,6 @@
 'use strict';
 
-describe('login', () => {
+xdescribe('login', () => {
     beforeEach(() => {
         let LoginModalBtn = element.all(by.buttonText(`Login`)).get(0);
         LoginModalBtn.click();

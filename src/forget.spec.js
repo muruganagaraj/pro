@@ -1,10 +1,10 @@
 const xlsx2json = require('xlsx2json');
 
-describe('registration', () => {
+xdescribe('forgot password', () => {
     xl_data = [];
 
     beforeAll(() => {
-        xlsx2json('E:/diTech-New/src/excel/registration.xlsx', {
+        xlsx2json('E:/diTech-New/src/excel/forgotPassword.xlsx', {
             mapping: {
                 'fieldId': 'A',
                 'id': 'B',
@@ -25,26 +25,24 @@ describe('registration', () => {
 
     beforeEach(() => {
         let LoginModalBtn = element.all(by.buttonText(`Login`)).get(0);
-        let creatAccountLink = element(by.linkText('Create account'));
+        let forgotPwdLink = element(by.linkText('Forgot Password?'));
         LoginModalBtn.click();
-        creatAccountLink.click();
+        forgotPwdLink.click();
     });
 
-    it('registration successfully', () => {
+    it('request for password reset link successfully', () => {
         xl_data.forEach(e => {
             if (e.type === 'text' || e.type === 'password')
                 element(by.id(e.fieldId)).sendKeys(e.value);
-            if (e.type === 'checkbox' && e.value.toUpperCase() === 'TRUE') {
+            if (e.type === 'checkbox')
                 element(by.id(e.fieldId)).click();
-            }
         });
-        let createAccBtn = element(by.buttonText('Create Account'));
-
-        createAccBtn.getAttribute('disabled').then(isDisabled => {
+        let forgotPwd_submitBtn = element(by.buttonText('Reset My Password'));
+        forgotPwd_submitBtn.getAttribute('disabled').then(isDisabled => {
             if (!isDisabled) {
-                createAccBtn.click();
+                forgotPwd_submitBtn.click();
             }
         });
-        browser.sleep(8000);
+        browser.sleep(5000);
     })
 })
