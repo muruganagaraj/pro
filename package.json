@@ -1,0 +1,36 @@
+{
+  "name": "voodoo_framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "posttest": "protractor ./src/protractorFiles/protractorconfig",
+    "pretest": "tsc --p ./src/e2e/tsconfig.json && tsc -w",
+    "webdriver-update": "webdriver-manager update --ignore_ssl"
+  },
+  "author": "muruga nagaraju",
+  "license": "ISC",
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "global": "^4.3.2",
+    "json2xls": "^0.1.2",
+    "node-fetch": "^1.7.3",
+    "path": "^0.12.7",
+    "xlsx-to-json": "^0.3.0",
+    "xlsx2json": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "2.5.41",
+    "@types/jasminewd2": "^2.0.0",
+    "jasmine": "^2.4.1",
+    "typescript": "~2.0.0"
+  },
+  "window": {
+    "title": "node-webkit demo",
+    "frame": true,
+    "width": 1200,
+    "height": 750,
+    "min_width": 400,
+    "min_height": 200
+  }
+}
